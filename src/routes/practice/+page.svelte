@@ -17,7 +17,13 @@
 <h1>Hello {name}!</h1>
 
 <div class="board">
-	<input bind:value={title} type="text" />
+	<input
+		bind:value={title}
+		type="text"
+		on:keydown={(e) => {
+			e.key === 'Enter' && createToDo();
+		}}
+	/>
 	<button on:click={createToDo}> 작성하기 </button>
 </div>
 
