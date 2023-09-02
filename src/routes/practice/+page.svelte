@@ -1,5 +1,5 @@
 <script>
-	import {writable} from 'svelte/store';
+	import { writable } from 'svelte/store';
 	import ToDo from './ToDo/ToDo.svelte';
 
 	let name = 'world';
@@ -8,6 +8,10 @@
 	let id = 0;
 
 	function createToDo() {
+		if (!title.trim()) {
+			title = '';
+			return;
+		}
 		$todos.push({ id, title });
 		$todos = $todos; // 할당을 통해 반응성 추가
 		title = '';
