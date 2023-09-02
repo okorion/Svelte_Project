@@ -1,14 +1,15 @@
 <script>
+	import {writable} from 'svelte/store';
 	import ToDo from './ToDo/ToDo.svelte';
 
 	let name = 'world';
 	let title = '';
-	let todos = [];
+	let todos = writable([]);
 	let id = 0;
 
 	function createToDo() {
-		todos.push({ id, title });
-		todos = todos; // 할당을 통해 반응성 추가
+		$todos.push({ id, title });
+		$todos = $todos; // 할당을 통해 반응성 추가
 		title = '';
 		id++;
 	}
@@ -27,9 +28,9 @@
 	<button on:click={createToDo}> 작성하기 </button>
 </div>
 
-{#each todos as todo}
+{#each $todos as todo}
 	<div>
-		<ToDo {todo} />
+		<ToDo {todos} {todo} />
 	</div>
 {/each}
 

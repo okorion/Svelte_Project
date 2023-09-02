@@ -1,5 +1,6 @@
 <script>
 	export let todo;
+	export let todos;
 
 	let isEdit = false;
 	let title = '';
@@ -16,7 +17,8 @@
 		offEdit();
 	}
 	function deleteToDo() {
-		todos = todos.filter((t) => t.id !== todo.id);
+		$todos = $todos.filter((t) => t.id !== todo.id);
+		console.log(todos);
 	}
 </script>
 
