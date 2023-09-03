@@ -12,7 +12,8 @@
 			title = '';
 			return;
 		}
-		$todos.push({ id, title });
+		// $todos.push({ id, title });
+		$todos = [{ id, title }, ...$todos]; // 할당을 통해 반응성 추가
 		$todos = $todos; // 할당을 통해 반응성 추가
 		title = '';
 		id++;
