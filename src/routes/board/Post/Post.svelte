@@ -3,10 +3,10 @@
 </script>
 
 <tr>
-  <td>{post.id}</td>
-  <td>{post.title}</td>
-  <td>익명</td>
-  <td>{post.date}</td>
+	<td>{post.id}</td>
+	<td>{post.title}</td>
+	<td>{post.content}</td>
+	<td>{post.time}</td>
 </tr>
 
 <style>

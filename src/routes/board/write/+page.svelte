@@ -1,6 +1,9 @@
 <script>
+	import { posts } from '../posts.js';
+
 	let title;
 	let content;
+	let id = 1;
 	let time = new Date();
 
 	function updateTime() {
@@ -8,11 +11,30 @@
 	}
 
 	// 매 초마다 시간 업데이트
-	const interval = setInterval(updateTime, 1000);
+	setInterval(updateTime, 1000);
 
 	function write() {
+		if (!title.trim()) {
+			title = '';
+			return;
+		}
+
+		posts.update(($posts) => [
+			{
+				id,
+				title,
+				content,
+				time: new Date().toLocaleDateString()
+			},
+			...$posts
+		]);
+
+		title = '';
+		content = '';
+		id++;
 		alert('작성완료');
 		history.back();
+		console.log($posts, posts);
 	}
 
 	function back() {

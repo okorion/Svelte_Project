@@ -1,24 +1,20 @@
 <script>
-	import { writable } from 'svelte/store';
+	import { posts } from './posts.js';
 	import Post from './Post/Post.svelte';
-
-	let id = 0;
-	let title = '';
-	let date = new Date();
-	let posts = writable([]);
 </script>
 
 <a href="/board/write">게시글 작성하기</a>
+<!-- <button style="height: 20px;" on:click={() => console.log($posts, posts)} /> -->
 
 <table>
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
-		<th>작성자</th>
+		<th>내용</th>
 		<th>작성일</th>
 	</tr>
 	{#each $posts as post}
-		<Post {post} />
+			<Post {post} />
 	{/each}
 </table>
 
