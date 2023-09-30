@@ -43,12 +43,28 @@
 </script>
 
 <h1>Write 라우팅 적용 성공!</h1>
-<input bind:value={title} placeholder="제목" />
-<input bind:value={content} type="content" name="" id="" placeholder="내용" />
+<input bind:value={title} type="title" placeholder="제목" />
+<input bind:value={content} type="text" name="" id="" placeholder="내용을 입력해주세요." />
 
 <div>{time.toLocaleDateString()} {time.toLocaleTimeString()}</div>
 <button on:click={write}>작성하기</button>
 
 <button on:click={back}>뒤로가기</button>
 
-<style></style>
+<style>
+	input[type='title'] {
+		height: 2rem; /* 원하는 높이로 조절하세요 */
+		padding: 0px 6px;
+	}
+
+	input[type='text'] {
+		height: 20rem; /* 원하는 높이로 조절하세요 */
+		text-align: top;
+		vertical-align: top;
+		padding: 5px 6px;
+	}
+
+	input[type='text']::placeholder {
+		font-size: 1rem;
+	}
+</style>
